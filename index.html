@@ -29,7 +29,7 @@
     const addObject = async () => {
       const jsonInput = document.getElementById('jsonInput').value;
       const data = JSON.parse(jsonInput);
-      const response = await fetch('https://REGION-PROJECT_ID.cloudfunctions.net/addObject', {
+      const response = await fetch('https://us-central1-we-app-45088.cloudfunctions.net/addObject', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -39,21 +39,21 @@
 
     const getObject = async () => {
       const objId = document.getElementById('fetchObjId').value;
-      const response = await fetch(`https://REGION-PROJECT_ID.cloudfunctions.net/getObject?obj_id=${objId}`);
+      const response = await fetch(`https://us-central1-we-app-45088.cloudfunctions.net/getObject?obj_id=${objId}`);
       const data = await response.json();
       document.getElementById('fetchResult').textContent = JSON.stringify(data, null, 2);
     };
 
     const deleteObject = async () => {
       const objId = document.getElementById('deleteObjId').value;
-      const response = await fetch(`https://REGION-PROJECT_ID.cloudfunctions.net/deleteObject?obj_id=${objId}`, {
+      const response = await fetch(`https://us-central1-we-app-45088.cloudfunctions.net/deleteObject?obj_id=${objId}`, {
         method: 'DELETE'
       });
       alert(await response.text());
     };
 
     const getAllObjects = async () => {
-      const response = await fetch('https://REGION-PROJECT_ID.cloudfunctions.net/getAllObjects');
+      const response = await fetch('https://us-central1-we-app-45088.cloudfunctions.net/getAllObjects');
       const data = await response.json();
       document.getElementById('allObjectsResult').textContent = JSON.stringify(data, null, 2);
     };
